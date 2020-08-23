@@ -22,8 +22,8 @@ fundamental API service for the following:
 - PostgreSQL
   - RDS
 
-## Todo
-- RDS migrations
-- CRUD operations
-- Simple Recommendation
-- Integration with frontend
+## Plan
+- [x] RDS migrations
+- [ ] CRUD operations
+- [ ] Simple Recommendation
+- [ ] Integration with frontend
