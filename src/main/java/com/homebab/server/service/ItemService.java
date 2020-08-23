@@ -1,0 +1,46 @@
+package com.homebab.server.service;
+
+import com.homebab.server.model.Item;
+import com.homebab.server.repository.ItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@Transactional
+public class ItemService {
+
+    final ItemRepository repository;
+
+    @Autowired
+    public ItemService(ItemRepository repository) {
+        this.repository = repository;
+    }
+
+    public List<Item> findAll() {
+        return repository.findAll();
+    }
+
+    public Optional<Item> findById(Integer id) {
+        return repository.findById(id);
+    }
+
+    public List<Item> findAllByIds(List<Integer> itemIds) {
+        return repository.findAllById(itemIds);
+    }
+
+    public void saveAll(List<Item> items) {
+        repository.saveAll(items);
+    }
+
+    public void save(Item item) {
+        repository.saveAndFlush(item);
+    }
+
+    public void delete(Integer id) {
+        repository.deleteById(id);
+    }
+}
