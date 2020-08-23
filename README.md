@@ -10,9 +10,9 @@
 ```
 fundamental API service for the following:
   
-- Manage Users & Items (food ingredients) 
-- Recommend Recipes
-- Push alarm
+- Manage Users & Items (food ingredients) & Recipes
+- Recommend Recipes (will be moved)
+- Push alarm (will be moved)
 
 
 ## TODO
