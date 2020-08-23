@@ -14,8 +14,15 @@ fundamental API service for the following:
 - Recommend Recipes (will be moved)
 - Push alarm (will be moved)
 
+## Stack
+- Spring Boot + Java
+  - MVC, Blocking IO
+- Hibernate + JPA
+  - ORM
+- PostgreSQL
+  - RDS
 
-## TODO
+## Todo
 - RDS migrations
 - CRUD operations
 - Simple Recommendation
