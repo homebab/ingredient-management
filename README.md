@@ -25,5 +25,8 @@ fundamental API service for the following:
 ## Plan
 - [x] RDS migrations
 - [ ] CRUD operations
-- [ ] Simple Recommendation
-- [ ] Integration with frontend
+- [ ] Open API with Swagger (Option)
+- [ ] Integrate with Elasticsearch
+- [ ] Simple recommendation
+- [ ] Integration with Frontend
+- [ ] Add 'Push alarm'
