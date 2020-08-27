@@ -1,9 +1,7 @@
 package com.homebab.server.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -33,6 +31,7 @@ public class Item {
     private String name;
 
     private Boolean sensitivity;
+
 
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "items")
 //    @JsonIgnoreProperties("items")

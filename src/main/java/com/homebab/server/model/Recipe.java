@@ -37,6 +37,8 @@ public class Recipe {
     @Column(name = "source_url")
     private String sourceUrl;
 
+    @OneToMany(mappedBy = "recipe")
+    private Set<RecipeItem> recipeItems= new HashSet<>();
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //    @JoinTable(name = "recipe_items",
 //            joinColumns = @JoinColumn(name = "recipe_id", referencedColumnName = "id"),

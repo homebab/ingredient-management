@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = "items")
+//@EqualsAndHashCode(exclude = "items")
 
 @Entity
 @Table(schema = "public", name = "users")
@@ -33,6 +33,10 @@ public class User {
     private String name;
 
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserItem> userItems = new HashSet<>();
+
 
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //    @JoinTable(name = "user_items",
