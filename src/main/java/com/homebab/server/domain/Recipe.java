@@ -17,8 +17,8 @@ import java.util.Set;
 //@EqualsAndHashCode(exclude = "items")
 
 @Entity
-@Table(schema = "public", name = "users")
-public class User {
+@Table(schema = "public", name = "recipes")
+public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,16 +32,12 @@ public class User {
 
     private String name;
 
-    private String email;
+    private String source;
 
-    @OneToMany(mappedBy = "user")
-    private Set<UserItem> userItems = new HashSet<>();
+    @Column(name = "source_url")
+    private String sourceUrl;
 
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<RecipeItem> recipeItems= new HashSet<>();
 
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_items",
-//            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "item_id", referencedColumnName = "id"))
-//    @JsonIgnoreProperties("users")
-//    private Set<Item> items = new HashSet<>();
 }

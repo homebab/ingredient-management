@@ -32,12 +32,4 @@ public class Item {
 
     private Boolean sensitivity;
 
-
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "items")
-//    @JsonIgnoreProperties("items")
-//    private Set<Recipe> recipes = new HashSet<>();
-//
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "items")
-//    @JsonIgnoreProperties("items")
-//    private Set<User> users = new HashSet<>();
 }

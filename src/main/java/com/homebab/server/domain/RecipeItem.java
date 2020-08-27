@@ -24,11 +24,11 @@ public class RecipeItem {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "recipe_id")
     private Recipe recipe = new Recipe();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "item_id")
     private Item item = new Item();
 
