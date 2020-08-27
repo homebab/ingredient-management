@@ -14,14 +14,6 @@ fundamental API service for the following:
 - Recommend Recipes (will be moved)
 - Push alarm (will be moved)
 
-## Stack
-- Spring Boot + Java
-  - MVC, Blocking IO
-- Hibernate + JPA
-  - ORM
-- PostgreSQL
-  - RDS
-
 ## Plan
 - [x] RDS migrations
 - [ ] CRUD operations
@@ -30,3 +22,21 @@ fundamental API service for the following:
 - [ ] Simple recommendation
 - [ ] Integration with Frontend
 - [ ] Add 'Push alarm'
+
+## Stack
+- Spring Boot + Java
+  - MVC, Blocking IO
+- Hibernate + JPA
+  - ORM
+- PostgreSQL
+  - RDS
+  
+ ## Structure
+ - controller: Presentation Layer
+ - service: Business Layer
+ - repository: Data Access Layer
+ - domain: objects
+  
+ 
+
+

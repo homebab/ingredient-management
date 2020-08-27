@@ -1,6 +1,6 @@
 package com.homebab.server.service;
 
-import com.homebab.server.model.Recipe;
+import com.homebab.server.domain.Recipe;
 import com.homebab.server.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Transactional
 public class RecipeService {
 
-    final RecipeRepository repository;
+    private final RecipeRepository repository;
 
     @Autowired
     public RecipeService(RecipeRepository repository) {
@@ -24,7 +24,7 @@ public class RecipeService {
         return repository.findAll();
     }
 
-    public Optional<Recipe> findById(Integer id) {
+    public Optional<Recipe> findById(Long id) {
         return repository.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class RecipeService {
         repository.saveAndFlush(recipe);
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }

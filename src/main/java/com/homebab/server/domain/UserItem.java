@@ -1,4 +1,4 @@
-package com.homebab.server.model;
+package com.homebab.server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -38,4 +39,13 @@ public class UserItem {
     @JoinColumn(name = "item_id")
     private Item item = new Item();
 
+    private static UserItem addUserItem(Item item, Optional<LocalDateTime> expiredAt, Optional<Integer> shelfLife, Optional<String> memo) {
+        UserItem userItem = new UserItem();
+        userItem.setItem(item);
+        userItem.setExpiredAt(expiredAt.orElse(null));
+        userItem.setShelfLife(shelfLife.orElse(null));
+        userItem.setMemo(memo.orElse(null));
+
+        return userItem;
+    }
 }

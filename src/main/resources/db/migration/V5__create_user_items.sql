@@ -1,11 +1,11 @@
 CREATE TABLE IF NOT EXISTS user_items
 (
     id         BIGSERIAL PRIMARY KEY,
+    user_id    BIGINT                                NOT NULL,
+    item_id    BIGINT                                NOT NULL,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NOT NULL,
     expired_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-    user_id    BIGINT                                  NOT NULL,
-    item_id    BIGINT                                   NOT NULL,
     shelf_life INT,
     memo       TEXT,
     UNIQUE (user_id, item_id),

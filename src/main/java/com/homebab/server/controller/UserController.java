@@ -1,8 +1,7 @@
 package com.homebab.server.controller;
 
-import com.homebab.server.domain.Item;
-import com.homebab.server.service.ItemService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.homebab.server.domain.User;
+import com.homebab.server.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,25 +12,24 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-public class ItemController {
+public class UserController {
 
-    final ItemService service;
+    final UserService service;
 
-    @Autowired
-    public ItemController(ItemService service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
-    @GetMapping(value = "/items")
-    public List<Item> findAll() {
+    @GetMapping(value = "/users")
+    public List<User> findAll() {
         return service.findAll();
     }
 
-    @GetMapping(value = "/items/{id}")
-    public ResponseEntity<Item> get(@PathVariable Long id) {
+    @GetMapping(value = "/users/{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id) {
         try {
-            Optional<Item> item = service.findById(id);
-            return item
+            Optional<User> userOptional = service.findById(id);
+            return userOptional
                     .map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
         } catch (NoSuchElementException e) {
@@ -39,22 +37,22 @@ public class ItemController {
         }
     }
 
-    @PostMapping(value = "/items/batch")
-    public void addAll(@RequestBody List<Item> items) {
-        service.saveAll(items);
+    @PostMapping(value = "/users/batch")
+    public void addAll(@RequestBody List<User> users) {
+        service.saveAll(users);
     }
 
-    @PostMapping(value = "/items")
-    public void add(@RequestBody Item item) {
-        service.save(item);
+    @PostMapping(value = "/users")
+    public void add(@RequestBody User user) {
+        service.save(user);
     }
 
-    @PutMapping(value = "/items/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Item item) {
+    @PutMapping(value = "/users/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody User user) {
         try {
-            Optional<Item> itemOptional = service.findById(id);
-            if (itemOptional.isPresent()) {
-                service.save(item);
+            Optional<User> userOptional = service.findById(id);
+            if (userOptional.isPresent()) {
+                service.save(user);
                 return new ResponseEntity<>(HttpStatus.OK);
             } else {
                 throw new NoSuchElementException();
@@ -64,8 +62,9 @@ public class ItemController {
         }
     }
 
-    @DeleteMapping(value = "/items/{id}")
+    @DeleteMapping(value = "/users/{id}")
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
+
 }

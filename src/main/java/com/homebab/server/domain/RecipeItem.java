@@ -1,4 +1,4 @@
-package com.homebab.server.model;
+package com.homebab.server.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

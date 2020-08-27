@@ -1,6 +1,6 @@
 package com.homebab.server.service;
 
-import com.homebab.server.model.Item;
+import com.homebab.server.domain.Item;
 import com.homebab.server.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class ItemService {
 
-    final ItemRepository repository;
+    private final ItemRepository repository;
 
     @Autowired
     public ItemService(ItemRepository repository) {
@@ -24,11 +24,11 @@ public class ItemService {
         return repository.findAll();
     }
 
-    public Optional<Item> findById(Integer id) {
+    public Optional<Item> findById(Long id) {
         return repository.findById(id);
     }
 
-    public List<Item> findAllByIds(List<Integer> itemIds) {
+    public List<Item> findAllByIds(List<Long> itemIds) {
         return repository.findAllById(itemIds);
     }
 
@@ -40,7 +40,7 @@ public class ItemService {
         repository.saveAndFlush(item);
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
         repository.deleteById(id);
     }
 }
