@@ -20,7 +20,7 @@ fundamental API service for the following:
 - [ ] Open API with Swagger (Option)
 - [ ] Data Streaming with AWS Kinesis
 - [ ] ETL process with Apach Spark 
-
+---
 - [ ] Integration with Elasticsearch
 - [ ] Simple recommendation
 - [ ] Integration with Frontend
