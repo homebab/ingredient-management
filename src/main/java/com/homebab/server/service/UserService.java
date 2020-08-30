@@ -2,7 +2,6 @@ package com.homebab.server.service;
 
 import com.homebab.server.domain.Item;
 import com.homebab.server.domain.User;
-import com.homebab.server.domain.UserItem;
 import com.homebab.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -27,16 +27,25 @@ public class UserService {
         return repository.save(user).getId();
     }
 
+
     // 사용자 식자재 추가
-//    public void addItems(Long id, Item item, ) {
-//        // 유저 조회
-//        User user = repository.findById(id).orElseThrow();
-//
-//        User
-//    }
+    public Long addItems(Long user_id, Item item) {
+        // 사용자 조회
+        User user = repository.findById(user_id).orElseThrow();
 
-    // 사용자 식자재 삭제
+        // 식자재 추가
+        user.addItem(item);
 
+        return item.getId();
+    }
+
+    // 사용자 식자재 조회
+    public Set<Item> getItems(Long user_id) {
+        // 사용자 조회
+        User user = repository.findById(user_id).orElseThrow();
+        
+        return user.getItems();
+    }
 
 
     public List<User> findAll() {

@@ -7,9 +7,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
+@Getter @Setter
 @NoArgsConstructor
-//@EqualsAndHashCode(exclude = "recipes")
+@EqualsAndHashCode(exclude = "user")
+@ToString(exclude="user")
 
 @Entity
 @Table(schema = "public", name = "items")
@@ -25,8 +26,21 @@ public class Item {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    private LocalDateTime expiredAt;
+
     private String name;
 
-    private Boolean sensitivity;
+    private String category;
+
+    private String memo;
+
+    private String imageUrl;
+
+//    private Boolean sensitivity;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user = new User();
+
 
 }

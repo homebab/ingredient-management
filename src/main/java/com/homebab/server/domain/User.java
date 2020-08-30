@@ -1,8 +1,6 @@
 package com.homebab.server.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,10 +9,11 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@EqualsAndHashCode(exclude = "items")
+@EqualsAndHashCode()
+@ToString()
 
 @Entity
 @Table(schema = "public", name = "users")
@@ -30,16 +29,23 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    private String name;
-
     private String email;
 
-    @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<UserItem> userItems = new HashSet<>();
+    private String name;
 
-    public void addUserItem(UserItem userItem) {
-        userItems.add(userItem);
-        userItem.setUser(this);
+    private Integer age;
+
+    private String gender;
+
+    private String imageUrl;
+
+
+    @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Item> items = new HashSet<Item>();
+
+    public void addItem(Item item) {
+        items.add(item);
+        item.setUser(this);
     }
 
 }
