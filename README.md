@@ -14,14 +14,28 @@ fundamental API service for the following:
 - Recommend Recipes (will be moved)
 - Push alarm (will be moved)
 
+## Get Started
+- postgres
+```
+url: jdbc:postgresql://localhost:5432/homebab
+username: postgres
+password: postgres
+```
+- openAPI with swagger 
+`http://localhost:8080/swagger-ui.html`
+
 ## Plan
 - [x] RDS migrations
 - [ ] CRUD operations
 - [ ] Open API with Swagger (Option)
-- [ ] Integrate with Elasticsearch
+- [ ] Data Streaming with AWS Kinesis
+- [ ] ETL process with Apach Spark 
+---
+- [ ] Integration with Elasticsearch
 - [ ] Simple recommendation
 - [ ] Integration with Frontend
 - [ ] Add 'Push alarm'
+...
 
 ## Stack
 - Spring Boot + Java
