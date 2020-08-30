@@ -22,10 +22,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Transactional
-public class UserServiceTest {
+public class BaseServiceTest {
 
     @Autowired
-    UserService userService;
+    BaseService baseService;
 
     @Autowired
     UserRepository userRepository;
@@ -33,11 +33,9 @@ public class UserServiceTest {
     @Test
     public void signUp() throws Exception {
 //        LocalDateTime now = LocalDateTime.now();
-        User user = new User();
-        user.setName("meow");
-        user.setEmail("meow@gmail.com");
+        User user = new User("meow@gmail.com", "meow");
 
-        Long savedId = userService.signUp(user);
+        Long savedId = baseService.signUp(user);
 
         assertEquals(
                 user,
@@ -48,12 +46,8 @@ public class UserServiceTest {
     @Test
     public void duplicatedEmail() throws Exception {
 
-        User user1 = new User();
-        user1.setName("meow1");
-        user1.setEmail("meow@gmail.com");
-        User user2 = new User();
-        user2.setName("meow2");
-        user2.setEmail("meow@gmail.com");
+        User user1 = new User("meow@gmail.com", "meow1");
+        User user2 = new User("meow@gmail.com", "meow2");
 
         assertThrows(
                 DataIntegrityViolationException.class,
@@ -65,28 +59,21 @@ public class UserServiceTest {
 
     @Test
     public void manageIngredients() throws Exception {
-        User user = new User();
-        user.setName("meow");
-        user.setEmail("meow@gmail.com");
+        User user = new User("meow@gmail.com", "meow");
 
-        Item item1 = new Item();
-        item1.setName("감자");
-        item1.setExpiredAt(LocalDateTime.of(2020, 9, 10, 0, 0));
-        item1.setCategory("야채");
-        Item item2 = new Item();
-        item2.setName("삼겹살");
-        item2.setExpiredAt(LocalDateTime.of(2020, 9, 3, 0, 0));
-        item2.setCategory("육류");
+        Item item1 = new Item("감자");
+        Item item2 = new Item("삼겹살");
 
         List<Item> items = Arrays.asList(item1, item2);
-        items.forEach(user::addItem);
+        items.forEach(i -> i.setUser(user));
 
         Set<Item> userItems = user.getItems();
 
+//        userItems.forEach(i -> System.out.println(i.getName()));
 //        System.out.println(item1);
 //        System.out.println(user);
 
-        items.forEach(i -> System.out.println(userItems.contains(i)));
+        items.forEach(i -> assertTrue(userItems.contains(i)));
     }
 
 }

@@ -22,32 +22,6 @@ public class UserService {
         this.repository = repository;
     }
 
-    // 회원가입
-    public Long signUp(User user) {
-        return repository.save(user).getId();
-    }
-
-
-    // 사용자 식자재 추가
-    public Long addItems(Long user_id, Item item) {
-        // 사용자 조회
-        User user = repository.findById(user_id).orElseThrow();
-
-        // 식자재 추가
-        user.addItem(item);
-
-        return item.getId();
-    }
-
-    // 사용자 식자재 조회
-    public Set<Item> getItems(Long user_id) {
-        // 사용자 조회
-        User user = repository.findById(user_id).orElseThrow();
-        
-        return user.getItems();
-    }
-
-
     public List<User> findAll() {
         return repository.findAll();
     }
@@ -67,4 +41,5 @@ public class UserService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
 }

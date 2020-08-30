@@ -28,9 +28,9 @@ public class ItemService {
         return repository.findById(id);
     }
 
-    public List<Item> findAllByIds(List<Long> itemIds) {
-        return repository.findAllById(itemIds);
-    }
+//    public List<Item> findAllByIds(List<Long> itemIds) {
+//        return repository.findAllById(itemIds);
+//    }
 
     public void saveAll(List<Item> items) {
         repository.saveAll(items);
@@ -43,4 +43,5 @@ public class ItemService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
 }

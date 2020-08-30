@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter @Setter
+@Getter
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode()
 @ToString()
@@ -29,8 +30,10 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @NonNull
     private String email;
 
+    @NonNull
     private String name;
 
     private Integer age;
@@ -39,13 +42,7 @@ public class User {
 
     private String imageUrl;
 
-
-    @OneToMany (mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Item> items = new HashSet<Item>();
-
-    public void addItem(Item item) {
-        items.add(item);
-        item.setUser(this);
-    }
+    @OneToMany (mappedBy = "user", fetch = FetchType.LAZY)
+    private final Set<Item> items = new HashSet<>();
 
 }

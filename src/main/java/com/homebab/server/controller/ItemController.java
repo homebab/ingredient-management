@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class ItemController {
 
-    final ItemService service;
+    private final ItemService service;
 
     @Autowired
     public ItemController(ItemService service) {
