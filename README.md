@@ -18,7 +18,10 @@ fundamental API service for the following:
 - [x] RDS migrations
 - [ ] CRUD operations
 - [ ] Open API with Swagger (Option)
-- [ ] Integrate with Elasticsearch
+- [ ] Data Streaming with AWS Kinesis
+- [ ] ETL process with Apach Spark 
+
+- [ ] Integration with Elasticsearch
 - [ ] Simple recommendation
 - [ ] Integration with Frontend
 - [ ] Add 'Push alarm'
