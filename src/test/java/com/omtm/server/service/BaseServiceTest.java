@@ -1,8 +1,8 @@
-package com.homebab.server.service;
+package com.omtm.server.service;
 
-import com.homebab.server.domain.Item;
-import com.homebab.server.domain.User;
-import com.homebab.server.repository.UserRepository;
+import com.omtm.server.domain.Item;
+import com.omtm.server.domain.User;
+import com.omtm.server.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.transaction.Transactional;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;

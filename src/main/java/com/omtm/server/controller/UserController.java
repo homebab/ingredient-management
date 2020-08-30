@@ -1,7 +1,7 @@
-package com.homebab.server.controller;
+package com.omtm.server.controller;
 
-import com.homebab.server.domain.User;
-import com.homebab.server.service.UserService;
+import com.omtm.server.domain.User;
+import com.omtm.server.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

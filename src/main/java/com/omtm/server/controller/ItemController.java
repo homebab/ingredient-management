@@ -1,7 +1,7 @@
-package com.homebab.server.controller;
+package com.omtm.server.controller;
 
-import com.homebab.server.domain.Item;
-import com.homebab.server.service.ItemService;
+import com.omtm.server.domain.Item;
+import com.omtm.server.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

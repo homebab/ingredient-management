@@ -1,4 +1,4 @@
-package com.homebab.server;
+package com.omtm.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

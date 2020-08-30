@@ -1,7 +1,7 @@
-package com.homebab.server.service;
+package com.omtm.server.service;
 
-import com.homebab.server.domain.Item;
-import com.homebab.server.repository.ItemRepository;
+import com.omtm.server.domain.Item;
+import com.omtm.server.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

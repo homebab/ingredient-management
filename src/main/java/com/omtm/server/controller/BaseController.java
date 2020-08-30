@@ -1,8 +1,8 @@
-package com.homebab.server.controller;
+package com.omtm.server.controller;
 
-import com.homebab.server.domain.Item;
-import com.homebab.server.domain.User;
-import com.homebab.server.service.BaseService;
+import com.omtm.server.domain.Item;
+import com.omtm.server.domain.User;
+import com.omtm.server.service.BaseService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;

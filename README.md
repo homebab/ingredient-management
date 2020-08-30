@@ -17,7 +17,7 @@ fundamental API service for the following:
 ## Get Started
 - postgres
 ```
-url: jdbc:postgresql://localhost:5432/homebab
+url: jdbc:postgresql://localhost:5432/omtm
 username: postgres
 password: postgres
 ```

@@ -1,4 +1,4 @@
-package com.homebab.server.config;
+package com.omtm.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.homebab.server.domain;
+package com.omtm.server.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
