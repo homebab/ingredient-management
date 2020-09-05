@@ -6,13 +6,15 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = "user")
-@ToString(exclude="user")
+@EqualsAndHashCode()
+@ToString()
 
 @Entity
 @Table(schema = "public", name = "items")
@@ -28,27 +30,18 @@ public class Item {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    private LocalDateTime expiredAt;
-
     @NonNull
     private String name;
 
+    @NonNull
     private String category;
 
-    private String memo;
+    private String description;
 
-    private String imageUrl;
+    private Integer refrigerated;
 
-//    private Boolean sensitivity;
+    private Integer frozen;
 
-    @NonNull
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user = new User();
-
-    public void setUser(User user) {
-        this.user = user;
-        user.getItems().add(this);
-    }
+    private Integer room_temperature;
 
 }
