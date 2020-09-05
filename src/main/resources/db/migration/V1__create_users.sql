@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users
     updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP NOT NULL,
     email      TEXT UNIQUE                           NOT NULL,
     name       TEXT                                  NOT NULL,
-    age        int,
+    age        INT,
     gender     TEXT,
     image_url  TEXT
 );

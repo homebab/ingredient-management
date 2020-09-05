@@ -43,6 +43,6 @@ public class User {
     private String imageUrl;
 
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY)
-    private final Set<Item> items = new HashSet<>();
+    private final Set<UserItem> userItems = new HashSet<>();
 
 }

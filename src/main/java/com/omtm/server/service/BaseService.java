@@ -1,8 +1,8 @@
 package com.omtm.server.service;
 
-import com.omtm.server.domain.Item;
 import com.omtm.server.domain.User;
-import com.omtm.server.repository.ItemRepository;
+import com.omtm.server.domain.UserItem;
+import com.omtm.server.repository.UserItemRepository;
 import com.omtm.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ public class BaseService {
 
     private final UserRepository userRepository;
 
-    private final ItemRepository itemRepository;
+    private final UserItemRepository userItemRepository;
 
     @Autowired
-    public BaseService(UserRepository userRepository, ItemRepository itemRepository) {
+    public BaseService(UserRepository userRepository, UserItemRepository userItemRepository) {
         this.userRepository = userRepository;
-        this.itemRepository = itemRepository;
+        this.userItemRepository = userItemRepository;
     }
 
 
@@ -32,21 +32,21 @@ public class BaseService {
 
 
     // 사용자 식자재 추가
-    public Long addItems(Long user_id, Item item) {
+    public Long addUserItems(Long user_id, UserItem userItem) {
         // 사용자 조회
         User user = userRepository.findById(user_id).orElseThrow();
 
         // 식자재 추가
-        item.setUser(user);
+        userItem.setUser(user);
 
-        return itemRepository.save(item).getId();
+        return userItemRepository.save(userItem).getId();
     }
 
     // 사용자 식자재 조회
-    public Set<Item> getItems(Long user_id) {
+    public Set<UserItem> getUserItems(Long user_id) {
         // 사용자 조회
         User user = userRepository.findById(user_id).orElseThrow();
 
-        return user.getItems();
+        return user.getUserItems();
     }
 }

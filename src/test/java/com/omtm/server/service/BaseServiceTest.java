@@ -1,6 +1,6 @@
 package com.omtm.server.service;
 
-import com.omtm.server.domain.Item;
+import com.omtm.server.domain.UserItem;
 import com.omtm.server.domain.User;
 import com.omtm.server.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -60,19 +60,19 @@ public class BaseServiceTest {
     public void manageIngredients() throws Exception {
         User user = new User("meow@gmail.com", "meow");
 
-        Item item1 = new Item("감자");
-        Item item2 = new Item("삼겹살");
+        UserItem userItem1 = new UserItem("감자", "냉장");
+        UserItem userItem2 = new UserItem("삼겹살", "냉동");
 
-        List<Item> items = Arrays.asList(item1, item2);
+        List<UserItem> items = Arrays.asList(userItem1, userItem2);
         items.forEach(i -> i.setUser(user));
 
-        Set<Item> userItems = user.getItems();
+        Set<UserItem> userUserItems = user.getUserItems();
 
 //        userItems.forEach(i -> System.out.println(i.getName()));
 //        System.out.println(item1);
 //        System.out.println(user);
 
-        items.forEach(i -> assertTrue(userItems.contains(i)));
+        items.forEach(i -> assertTrue(userUserItems.contains(i)));
     }
 
 }
