@@ -1,4 +1,4 @@
-INSERT INTO items (name, category, refrigerated, frozen, room_temperature)
+INSERT INTO items (name, category, fridge, freezer, room)
 VALUES ('대파', '채소', 10, 30, NULL),
        ('양파', '채소', 7, NULL, NULL),
        ('가지', '채소', 5, NULL, NULL),

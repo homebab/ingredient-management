@@ -1,5 +1,6 @@
 package com.omtm.server.service;
 
+import com.omtm.server.domain.Storage;
 import com.omtm.server.domain.UserItem;
 import com.omtm.server.domain.User;
 import com.omtm.server.repository.UserRepository;
@@ -60,8 +61,8 @@ public class BaseServiceTest {
     public void manageIngredients() throws Exception {
         User user = new User("meow@gmail.com", "meow");
 
-        UserItem userItem1 = new UserItem("감자", "냉장");
-        UserItem userItem2 = new UserItem("삼겹살", "냉동");
+        UserItem userItem1 = new UserItem("감자", Storage.FRIDGE);
+        UserItem userItem2 = new UserItem("삼겹살", Storage.FREEZER);
 
         List<UserItem> items = Arrays.asList(userItem1, userItem2);
         items.forEach(i -> i.setUser(user));

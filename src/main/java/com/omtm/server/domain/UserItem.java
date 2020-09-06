@@ -36,7 +36,8 @@ public class UserItem {
     private String tag;
 
     @NonNull
-    private String storage;
+    @Enumerated(EnumType.STRING)
+    private Storage storage; // [FRIDGE, FREEZER, ROOM]
 
     private String memo;
 

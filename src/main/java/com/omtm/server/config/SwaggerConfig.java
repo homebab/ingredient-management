@@ -25,13 +25,13 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("한끼두끼 API 서비스")
+                .title("한끼두끼 API")
                 .description(
                         "Fundamental API service for the following:\n" +
-                        "\n" +
                         "- manage Users & Items (food ingredients) & Recipes\n" +
-                        "- recommend Recipes (will be moved)\n" +
-                        "- push alarm (will be moved)"
+                        "- streaming user's item usage pattern data" +
+                        "- recommend Recipes [TODO]\n" +
+                        "- push alarm [TODO]"
                 )
                 .version("1.0")
 //                .license("Apache 2.0")

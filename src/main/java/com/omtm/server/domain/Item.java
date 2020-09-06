@@ -38,10 +38,10 @@ public class Item {
 
     private String description;
 
-    private Integer refrigerated;
+    private Integer fridge;
 
-    private Integer frozen;
+    private Integer freezer;
 
-    private Integer room_temperature;
+    private Integer room;
 
 }

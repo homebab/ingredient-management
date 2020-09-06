@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,6 +32,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     @NonNull
+    @Email(message = "invalid email")
     private String email;
 
     @NonNull
