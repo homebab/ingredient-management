@@ -42,7 +42,7 @@ dependencies {
 
 test {
     environment 'RDB_URL', 'jdbc:postgresql://localhost:5432/omtm'
-    environment 'RDB_USERNAME', 'omtm'
-    environment 'RDB_PASSWORD', 'omtm2020'
+    environment 'RDB_USERNAME', 'postgres'
+    environment 'RDB_PASSWORD', 'postgres'
     useJUnitPlatform()
 }
