@@ -92,5 +92,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: omtm-server-service
-        cluster: default
+        cluster: OmtmCluster
         wait-for-service-stability: true
