@@ -17,7 +17,20 @@
       "command": null,
       "linuxParameters": null,
       "cpu": 0,
-      "environment": [],
+      "environment": [
+        {
+          "name": "RDB_PASSWORD",
+          "value": "omtm2020"
+        },
+        {
+          "name": "RDB_URL",
+          "value": "jdbc:postgresql://omtm-production-database.cab19fjxeaod.ap-northeast-2.rds.amazonaws.com:5432/omtm"
+        },
+        {
+          "name": "RDB_USERNAME",
+          "value": "omtm"
+        }
+      ],
       "resourceRequirements": null,
       "ulimits": null,
       "dnsServers": null,
@@ -55,7 +68,7 @@
   "compatibilities": [
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:783361761742:task-definition/omtm-server:2",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:783361761742:task-definition/omtm-server:4",
   "family": "omtm-server",
   "requiresAttributes": [
     {
@@ -71,7 +84,7 @@
   ],
   "networkMode": "bridge",
   "cpu": "512",
-  "revision": 2,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
