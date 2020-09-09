@@ -6,6 +6,9 @@ import com.omtm.server.service.BaseService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Set;
 
 @RestController
@@ -16,8 +19,21 @@ public class BaseController {
 
     public BaseController(BaseService service) { this.service = service; }
 
-    @GetMapping(value = "/aws")
-    public String checkHealthy() { return "[omtm] check health"; }
+    @GetMapping(value = "/address")
+    public String getAddress() {
+        String hostName, ipAddress;
+
+        try {
+            hostName = InetAddress.getLocalHost().getHostName();
+            ipAddress = InetAddress.getLocalHost().getHostAddress();
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            hostName = "Error : " + e.getLocalizedMessage();
+            ipAddress = "";
+        }
+
+        return String.format("hostName: %s, ipAddress: %s", hostName, ipAddress);
+    }
 
     @PostMapping(value = "/users")
     public Long signIn(@RequestBody @Valid User user) { return service.signUp(user); }
