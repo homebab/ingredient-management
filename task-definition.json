@@ -42,7 +42,7 @@
       "memoryReservation": 500,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "783361761742.dkr.ecr.ap-northeast-2.amazonaws.com/omtm/server:latest",
+      "image": "783361761742.dkr.ecr.ap-northeast-2.amazonaws.com/omtm/server:3d77963298521bb3a7329bc6388c83ffd2fcb6d0",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -68,7 +68,7 @@
   "compatibilities": [
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:783361761742:task-definition/omtm-server:9",
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:783361761742:task-definition/omtm-server:11",
   "family": "omtm-server",
   "requiresAttributes": [
     {
@@ -90,7 +90,7 @@
   ],
   "networkMode": "bridge",
   "cpu": null,
-  "revision": 9,
+  "revision": 11,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,

@@ -16,6 +16,9 @@ public class BaseController {
 
     public BaseController(BaseService service) { this.service = service; }
 
+    @GetMapping(value = "/aws")
+    public String checkHealthy() { return "[omtm] check health"; }
+
     @PostMapping(value = "/users")
     public Long signIn(@RequestBody @Valid User user) { return service.signUp(user); }
 

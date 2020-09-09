@@ -55,7 +55,6 @@ public class UserItem {
         user.getUserItems().add(this);
     }
 
-    @NonNull
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "item_id")
     private Item item = new Item();
