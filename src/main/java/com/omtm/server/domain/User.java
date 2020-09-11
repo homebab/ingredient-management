@@ -1,5 +1,6 @@
 package com.omtm.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,8 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode()
-@ToString()
+@EqualsAndHashCode(exclude = "userItems")
+@ToString(exclude = "userItems")
 
 @Entity
 @Table(schema = "public", name = "users")
@@ -44,7 +45,15 @@ public class User {
 
     private String imageUrl;
 
+    @NonNull
+    private boolean active = true;
+
+    @JsonManagedReference
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY)
     private final Set<UserItem> userItems = new HashSet<>();
+
+    public void deactivate() {
+        this.active = false;
+    }
 
 }

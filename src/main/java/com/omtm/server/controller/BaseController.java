@@ -19,13 +19,19 @@ public class BaseController {
         this.service = service;
     }
 
-    @PostMapping(value = "/items/{user_id}")
-    public Long addItem(@PathVariable Long user_id, @RequestBody @Valid UserItem userItem) {
-        return service.addUserItems(user_id, userItem);
+    @PostMapping(value = "/items/{userId}")
+    public Long addUserItem(@PathVariable Long userId, @RequestBody @Valid UserItem userItem) {
+        return service.addUserItems(userId, userItem);
     }
 
-    @GetMapping(value = "/items/{user_id}")
-    public Set<UserItem> getItems(@PathVariable Long user_id) {
-        return service.getUserItems(user_id);
+    @GetMapping(value = "/items/{userId}")
+    public Set<UserItem> getUserItems(@PathVariable Long userId) {
+        return service.getUserItems(userId);
+    }
+
+    @DeleteMapping(value = "/items/{userItemId}")
+    public Long deleteUserItem(@PathVariable Long userItemId) {
+        service.deleteUserItems(userItemId);
+        return userItemId;
     }
 }

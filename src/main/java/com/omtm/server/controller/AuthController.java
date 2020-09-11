@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Api(value = "auth", tags = "User Management")
 @RestController
@@ -28,20 +26,22 @@ public class AuthController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/users/email/{email}")
-    public ResponseEntity<User> signIn(@PathVariable String email) {
-//        User user = authService.signIn(email).get();
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-        Optional<User> userOptional = authService.signIn(email);
-        return userOptional
-                .map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseThrow(() -> new NoSuchElementException(String.format("[omtm]: there is no user with email, %s", email)));
+    @GetMapping(value = "/users")
+    public ResponseEntity<User> signIn(@RequestParam String email) {
+        User user = authService.signIn(email);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-//    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "No such element") // 404
-//    @ExceptionHandler(NoSuchElementException.class)
-//    public void notFound() {
-//        System.out.println("fuck");
-//    }
+    @PutMapping(value = "/users/{id}")
+    public ResponseEntity<Long> deactivate(@PathVariable Long id) {
+        authService.deactivate(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/users/{id}")
+    public ResponseEntity<Long> delete(@PathVariable Long id) {
+        authService.delete(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
 
 }

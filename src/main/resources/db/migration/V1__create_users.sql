@@ -8,5 +8,6 @@ CREATE TABLE IF NOT EXISTS users
     name       TEXT                                  NOT NULL,
     age        INT,
     gender     TEXT,
-    image_url  TEXT
+    image_url  TEXT,
+    active     BOOLEAN     DEFAULT TRUE              NOT NULL
 );
