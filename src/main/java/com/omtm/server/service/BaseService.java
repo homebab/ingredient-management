@@ -25,12 +25,6 @@ public class BaseService {
     }
 
 
-    // 회원가입
-    public Long signUp(User user) {
-        return userRepository.save(user).getId();
-    }
-
-
     // 사용자 식자재 추가
     public Long addUserItems(Long user_id, UserItem userItem) {
         // 사용자 조회

@@ -24,38 +24,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @Transactional
 public class BaseServiceTest {
 
-    @Autowired
-    BaseService baseService;
-
-    @Autowired
-    UserRepository userRepository;
-
-    @Test
-    public void signUp() throws Exception {
-//        LocalDateTime now = LocalDateTime.now();
-        User user = new User("meow@gmail.com", "meow");
-
-        Long savedId = baseService.signUp(user);
-
-        assertEquals(
-                user,
-                userRepository.findById(savedId).orElse(null)
-        );
-    }
-
-    @Test
-    public void duplicatedEmail() throws Exception {
-
-        User user1 = new User("meow@gmail.com", "meow1");
-        User user2 = new User("meow@gmail.com", "meow2");
-
-        assertThrows(
-                DataIntegrityViolationException.class,
-                () -> Arrays.asList(user1, user2).forEach(u -> userRepository.save(u)),
-                "Exception was expected, but passed"
-        );
-
-    }
+//    @Autowired
+//    BaseService baseService;
+//
+//    @Autowired
+//    UserRepository userRepository;
 
     @Test
     public void manageIngredients() throws Exception {
