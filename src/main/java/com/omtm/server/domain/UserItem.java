@@ -1,6 +1,6 @@
 package com.omtm.server.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -47,7 +47,6 @@ public class UserItem {
 //    private Boolean sensitivity;
 
     @NonNull
-    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user = new User();
@@ -57,7 +56,7 @@ public class UserItem {
         user.getUserItems().add(this);
     }
 
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "item_id")
     private Item item = new Item();

@@ -1,12 +1,14 @@
 package com.omtm.server.controller;
 
 import com.omtm.server.domain.UserItem;
+import com.omtm.server.dto.UserItemDto;
 import com.omtm.server.service.BaseService;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Api(value = "base", tags = "Ingredients Management")
 @RestController
@@ -25,8 +27,8 @@ public class BaseController {
     }
 
     @GetMapping(value = "/items/{userId}")
-    public Set<UserItem> getUserItems(@PathVariable Long userId) {
-        return service.getUserItems(userId);
+    public Set<UserItemDto.Response> getUserItems(@PathVariable Long userId) {
+        return service.getUserItems(userId).stream().map(UserItemDto.Response::new).collect(Collectors.toSet());
     }
 
     @DeleteMapping(value = "/items/{userItemId}")

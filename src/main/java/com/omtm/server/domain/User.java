@@ -1,6 +1,7 @@
 package com.omtm.server.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,6 +18,8 @@ import java.util.Set;
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "userItems")
 @ToString(exclude = "userItems")
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
 
 @Entity
 @Table(schema = "public", name = "users")
@@ -48,7 +51,6 @@ public class User {
     @NonNull
     private boolean active = true;
 
-    @JsonManagedReference
     @OneToMany (mappedBy = "user", fetch = FetchType.LAZY)
     private final Set<UserItem> userItems = new HashSet<>();
 
