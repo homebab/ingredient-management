@@ -21,8 +21,8 @@ public class ExceptionController {
 //    @ResponseStatus(value = HttpStatus.CONFLICT, reason = "Data integrity violation")  // 409
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public ResponseEntity<String> conflict(DataIntegrityViolationException e) {
-        logger.error("[omtm]: " + e.getMessage());
-        return new ResponseEntity<>("[omtm]: " + e.getMessage(), HttpStatus.CONFLICT);
+        logger.error("" + e.getMessage());
+        return new ResponseEntity<>("" + e.getMessage(), HttpStatus.CONFLICT);
         // Nothing to do
     }
 
