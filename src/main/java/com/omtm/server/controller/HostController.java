@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-@Api(value = "host", tags = "Host IP Address", description = "")
+@Api(value = "host", tags = "Host IP Address")
 @RestController
 @RequestMapping("/api")
 public class HostController {

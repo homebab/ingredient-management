@@ -21,15 +21,14 @@ public class AuthService {
 
     // 회원가입
     public Long signUp(User user) {
+        user.activate();
         return userRepository.save(user).getId();
     }
 
     // 로그인
     public User signIn(String email) {
-        User user = userRepository.findByEmail(email)
+        return userRepository.findByEmail(email)
                 .orElseThrow(() -> new NoSuchElementException(String.format("[omtm]: there is no user with email, %s", email)));
-        user.activate();
-        return user;
     }
 
     // 휴먼계정
