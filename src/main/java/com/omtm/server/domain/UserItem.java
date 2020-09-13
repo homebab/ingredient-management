@@ -8,12 +8,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Setter
 @Getter
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(exclude = "user")
-@ToString(exclude="user")
+@ToString(exclude = "user")
 
 @Entity
 @Table(schema = "public", name = "user_items")
@@ -64,5 +65,15 @@ public class UserItem {
     public void setItem(Item item) {
         this.item = item;
     }
+
+//    @Builder
+//    public UserItem(LocalDateTime expiredAt, String name, String tag, Storage storage, String memo, String imageUrl) {
+//        this.expiredAt = expiredAt;
+//        this.name = name;
+//        this.tag = tag;
+//        this.storage = storage;
+//        this.memo = memo;
+//        this.imageUrl = imageUrl;
+//    }
 
 }

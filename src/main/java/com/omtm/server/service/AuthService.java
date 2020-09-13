@@ -28,7 +28,7 @@ public class AuthService {
     // 로그인
     public User signIn(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow(() -> new NoSuchElementException(String.format("there is no user with email, %s", email)));
+                .orElseThrow(() -> new NoSuchElementException(String.format("[omtm]: there is no user with email, %s", email)));
     }
 
     // 휴먼계정
