@@ -23,10 +23,11 @@ public class BaseController {
     }
 
     @PostMapping(value = "/items/{userId}")
-    public Long addUserItem(@PathVariable Long userId, @RequestBody @Valid UserItemDto.Request userItemRequest) {
+    public UserItemDto.Response addUserItem(@PathVariable Long userId, @RequestBody @Valid UserItemDto.Request userItemRequest) {
         ModelMapper modelMapper = new ModelMapper();
-        UserItem userItem = modelMapper.map(userItemRequest, UserItem.class);
-        return service.addUserItems(userId, userItem);
+
+        UserItem userItem = service.addUserItems(userId, modelMapper.map(userItemRequest, UserItem.class));
+        return modelMapper.map(userItem, UserItemDto.Response.class);
     }
 
     @GetMapping(value = "/items/{userId}")

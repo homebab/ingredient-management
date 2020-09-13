@@ -32,18 +32,22 @@ public class BaseService {
 
 
     // 사용자 식자재 추가
-    public Long addUserItems(Long user_id, UserItem userItem) {
+    public UserItem addUserItems(Long user_id, UserItem userItem) {
         // 사용자 조회
         User user = userRepository.findById(user_id).orElseThrow();
         // 식자재 사전 조회
-        Optional<Item> item = itemRepository.findByName(userItem.getName()) ;
+        Optional<Item> item = itemRepository.findByName(userItem.getName());
 
         // 식자재 추가
+        System.out.println(item.isPresent());
         userItem.setUser(user);
-        item.ifPresent(userItem::setItem);
+        item.ifPresentOrElse(
+                userItem::setItem,
+                () -> userItem.setItem(null))
+        ;
 
         // 식자재 저장
-        return userItemRepository.save(userItem).getId();
+        return userItemRepository.save(userItem);
     }
 
     // 사용자 식자재 조회
