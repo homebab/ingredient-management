@@ -17,6 +17,9 @@ spring:
         use_sql_comments: true
         jdbc.lob.non_contextual_creation: true
 
+        # save as UTC on RDS and retrieve as Asia/Seoul on Spring
+        jdbc.time_zone: Asia/Seoul
+
   flyway:
     clean-on-validation-error: true
 
