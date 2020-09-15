@@ -27,8 +27,8 @@ password: postgres
 
 ## Plan
 - [x] RDS migrations
-- [ ] CRUD operations
-- [ ] Open API with Swagger (Option)
+- [x] CRUD operations
+- [x] Open API with Swagger (Option)
 - [ ] Data Streaming with AWS Kinesis
 - [ ] ETL process with Apach Spark 
 ---
