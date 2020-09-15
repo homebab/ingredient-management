@@ -22,20 +22,6 @@ public class UserItemDto {
         private Storage storage; // [FRIDGE, FREEZER, ROOM]
         private String memo;
         private String imageUrl;
-
-//        public Response(UserItem useritem) {
-//            this.id = useritem.getId();
-//            this.userId = useritem.getUser().getId();
-//            this.itemId = useritem.getItem().getId();
-//            this.createdAt = useritem.getCreatedAt();
-//            this.updatedAt = useritem.getUpdatedAt();
-//            this.expiredAt = useritem.getExpiredAt();
-//            this.name = useritem.getName();
-//            this.tag = useritem.getTag();
-//            this.storage = useritem.getStorage();
-//            this.memo = useritem.getMemo();
-//            this.imageUrl = useritem.getImageUrl();
-//        }
     }
 
     @Getter
@@ -52,12 +38,5 @@ public class UserItemDto {
         private Storage storage; // [FRIDGE, FREEZER, ROOM]
         private String memo;
         private String imageUrl;
-
-//        public UserItem toEntity() {
-//
-//            UserItem userItem = new UserItem(name, storage);
-//            userItem
-//            return userItem;
-//        }
     }
 }
