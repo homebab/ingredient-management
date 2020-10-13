@@ -11,8 +11,8 @@
 ```
 fundamental API service for the following:
   
-- Manage Users & Items (food ingredients) & Recipes
-- Recommend Recipes (will be moved)
+- Management
+  - Users & Items (food ingredients) & Recipes
 - Push alarm (will be moved)
 
 ## Get Started
@@ -29,12 +29,8 @@ password: postgres
 - [x] RDS migrations
 - [x] CRUD operations
 - [x] Open API with Swagger (Option)
-- [ ] Data Streaming with AWS Kinesis
-- [ ] ETL process with Apach Spark 
+- [x] Integration with Frontend
 ---
-- [ ] Integration with Elasticsearch
-- [ ] Simple recommendation
-- [ ] Integration with Frontend
 - [ ] Add 'Push alarm'
 ...
 
