@@ -10,8 +10,8 @@
                                                                    
 ```
 ## Updated
-- 01. 17. 2021
-  - This API service is not used. User & Item is managed by AWS Amplify for social login(Auth) and offline appsync(Datastore)
+- 17.01.21: This API service is not used. 
+  - User & Item is managed by AWS Amplify for social login(Auth) and offline appsync(Datastore)
 
 fundamental API service for the following:
   
